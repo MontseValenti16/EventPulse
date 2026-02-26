@@ -3,7 +3,6 @@ package com.montse.eventpulse.features.events.presentation.staff.viewmodels
 import androidx.lifecycle.*
 import com.montse.eventpulse.features.events.domain.repositories.EventRepository
 import com.montse.eventpulse.features.events.domain.usecases.shared.GetEventTasksUseCase
-import com.montse.eventpulse.features.events.presentation.viewmodels.EventState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -15,7 +14,7 @@ class StaffEventViewModel @Inject constructor(
     private val repository: EventRepository
 ) : ViewModel() {
 
-    // Cambiamos mutableStateOf por MutableStateFlow
+
     private val _state = MutableStateFlow(EventState())
     val state: StateFlow<EventState> = _state.asStateFlow()
 
@@ -23,7 +22,7 @@ class StaffEventViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
 
-            // 1. Cargar tareas iniciales
+
             getEventTasksUseCase(eventId).collect { initialTasks ->
                 _state.update { it.copy(tasks = initialTasks, isLoading = false) }
             }

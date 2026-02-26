@@ -22,7 +22,6 @@ class AuthRepositoryImpl @Inject constructor(
         return try {
             val response = api.login(LoginRequestDto(username, password))
 
-            // 1. Guardar Token en Preferencias (Persistencia básica)
             val prefs: SharedPreferences = context.getSharedPreferences(Constants.PREFERENCES_NAME, Context.MODE_PRIVATE)
             prefs.edit().putString(Constants.KEY_JWT_TOKEN, response.token).apply()
 

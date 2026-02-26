@@ -21,7 +21,7 @@ object AuthModule {
     @Provides
     @Singleton
     fun provideAuthApiService(
-        // Usamos el cliente PUBLICO (sin token) porque aún no estamos logueados
+
         @PublicClient okHttpClient: OkHttpClient
     ): AuthApiService {
         return Retrofit.Builder()

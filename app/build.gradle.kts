@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.montse.eventpulse"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.montse.eventpulse"
@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.firebase.crashlytics.buildtools)
     ksp(libs.hilt.compiler)
 
     // Room

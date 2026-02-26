@@ -10,7 +10,7 @@ interface AuthApiService {
     suspend fun login(@Body request: LoginRequestDto): LoginResponseDto
 }
 
-// Modelos para el JSON (DTOs)
+
 data class LoginRequestDto(
     @SerializedName("nombre_usuario") val username: String,
     @SerializedName("password_hash") val password: String

@@ -1,6 +1,7 @@
 package com.montse.eventpulse.features.events.data.di
 
-import com.montse.eventpulse.core.database.AppDatabase // Ajusta a tu nombre de BD
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.HttpClient
+import com.montse.eventpulse.core.database.AppDatabase
 import com.montse.eventpulse.features.events.data.local.EventDao
 import com.montse.eventpulse.features.events.data.remote.EventApiService
 import com.montse.eventpulse.features.events.data.remote.EventSocketService
@@ -13,6 +14,7 @@ import dagger.hilt.components.SingletonComponent
 import io.ktor.client.*
 import retrofit2.Retrofit
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)

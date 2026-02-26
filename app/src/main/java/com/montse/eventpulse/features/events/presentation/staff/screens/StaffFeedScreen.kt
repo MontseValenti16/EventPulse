@@ -18,7 +18,7 @@ fun StaffFeedScreen(
     eventId: String,
     viewModel: StaffEventViewModel = hiltViewModel()
 ) {
-    // El "by" ya no debería marcar error gracias al import de getValue
+
     val uiState by viewModel.state.collectAsStateWithLifecycle()
 
     LaunchedEffect(eventId) {

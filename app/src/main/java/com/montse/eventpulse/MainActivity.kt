@@ -3,45 +3,19 @@ package com.montse.eventpulse
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.montse.eventpulse.ui.theme.EventPulseTheme
+import com.montse.eventpulse.core.navigation.AppNavigation
+import com.montse.eventpulse.ui.theme.EventPulseTheme // O el nombre de tu tema si es diferente
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint // <--- ¡VITAL! Sin esto, la app se cierra al abrir
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
+            // Aquí envolvemos la navegación con el tema
             EventPulseTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                AppNavigation() // <--- Aquí llamamos a tu mapa de rutas
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    EventPulseTheme {
-        Greeting("Android")
     }
 }
